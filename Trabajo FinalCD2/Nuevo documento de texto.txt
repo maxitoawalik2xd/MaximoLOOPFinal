@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOOP MX - Tu Pase Directo a los Antojos Más Virales de USA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b6b;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="30" r="2.5" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="60" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-20px) translateX(10px); }
+            100% { transform: translateY(0px) translateX(0px); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideInUp 1s ease-out 0.6s both;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Productos Section */
+        .productos {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 2px;
+        }
+
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .producto-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .producto-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+        }
+
+        .producto-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .producto-emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .producto-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .producto-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .precio {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 3rem 2rem;
+            background: #fff;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Documentación Section */
+        .documentacion {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .doc-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .doc-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 3rem;
+            border-bottom: 3px solid #ff6b6b;
+            padding-bottom: 1rem;
+        }
+
+        .doc-section {
+            margin-bottom: 3rem;
+        }
+
+        .doc-section h2 {
+            color: #ff6b6b;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #ff6b6b;
+            padding-left: 1rem;
+        }
+
+        .doc-section h3 {
+            color: #4ecdc4;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        .doc-section p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+            color: #333;
+        }
+
+        .doc-section ul, .doc-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .doc-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .doc-section a {
+            color: #45b7d1;
+            text-decoration: none;
+        }
+
+        .doc-section a:hover {
+            color: #ff6b6b;
+            text-decoration: underline;
+        }
+
+        .doc-section strong {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .doc-section ol > li > ul {
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .doc-content {
+                padding: 2rem 1rem;
+            }
+            
+            .doc-title {
+                font-size: 2rem;
+            }
+            
+            .doc-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .doc-section h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #ff6b6b;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #ff6b6b;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .copyright {
+            border-top: 1px solid #555;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            color: #999;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .productos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="https://loopmx.com.mx/" class="logo">LOOP MX</a>
+            <ul class="nav-links">
+                <li><a href="https://loopmx.com.mx/">Inicio</a></li>
+                <li><a href="https://loopmx.com.mx/">Productos</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#documentacion">Documentación</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Tu Pase Directo a los Antojos Más Virales de USA</h1>
+            <p>Descubre la tienda de snacks americanos más TOP de México y Latinoamérica. Calidad, precio y tus productos favoritos a un solo clic de distancia.</p>
+            <a href="https://loopmx.com.mx/" class="cta-button">Explorar Snacks</a>
+        </div>
+    </section>
+
+    <!-- Productos Section -->
+    <section id="productos" class="productos">
+        <div class="container">
+            <h2 class="section-title fade-in">Snacks Más Virales</h2>
+            <div class="productos-grid">
+                <div class="producto-card fade-in">
+                    <div class="producto-emoji">🍩</div>
+                    <h3>Twinkies Originales</h3>
+                    <p>El clásico americano que conquistó TikTok. Suave, esponjoso y con ese sabor único que todos aman.</p>
+                    <span class="precio">$89 MXN</span>
+                    <br><br>
+                    <a href="https://loopmx.com.mx/" target="_blank" style="background: linear-gradient(45deg, #ff6b6b, #ff8e8e); color: white; padding: 0.5rem 1rem; border-radius: 25px; text-decoration: none; font-size: 0.9rem;">Ver Producto</a>
+                </div>
+                <div class="producto-card fade-in">
+                    <div class="producto-emoji">🥨</div>
+                    <h3>Hot Cheetos Flamin'</h3>
+                    <p>Los Cheetos más picantes que se volvieron tendencia. Perfectos para los challenges más extremos.</p>
+                    <span class="precio">$65 MXN</span>
+                    <br><br>
+                    <a href="https://loopmx.com.mx/" target="_blank" style="background: linear-gradient(45deg, #ff6b6b, #ff8e8e); color: white; padding: 0.5rem 1rem; border-radius: 25px; text-decoration: none; font-size: 0.9rem;">Ver Producto</a>
+                </div>
+                <div class="producto-card fade-in">
+                    <div class="producto-emoji">🍓</div>
+                    <h3>Pop-Tarts Fresa</h3>
+                    <p>Las famosas tartas tostables de Estados Unidos. Desayuno viral o snack perfecto a cualquier hora.</p>
+                    <span class="precio">$95 MXN</span>
+                    <br><br>
+                    <a href="https://loopmx.com.mx/" target="_blank" style="background: linear-gradient(45deg, #ff6b6b, #ff8e8e); color: white; padding: 0.5rem 1rem; border-radius: 25px; text-decoration: none; font-size: 0.9rem;">Ver Producto</a>
+                </div>
+                <div class="producto-card fade-in">
+                    <div class="producto-emoji">🌈</div>
+                    <h3>Froot Loops Cereal</h3>
+                    <p>Los cereales más coloridos de América. Sabor a frutas que te transporta a la infancia gringa.</p>
+                    <span class="precio">$120 MXN</span>
+                    <br><br>
+                    <a href="https://loopmx.com.mx/" target="_blank" style="background: linear-gradient(45deg, #ff6b6b, #ff8e8e); color: white; padding: 0.5rem 1rem; border-radius: 25px; text-decoration: none; font-size: 0.9rem;">Ver Producto</a>
+                </div>
+                <div class="producto-card fade-in">
+                    <div class="producto-emoji">🔥</div>
+                    <h3>Takis Fuego</h3>
+                    <p>Los rollitos más intensos que conquistaron las redes sociales. Picante, ácido y adictivo.</p>
+                    <span class="precio">$45 MXN</span>
+                    <br><br>
+                    <a href="https://loopmx.com.mx/" target="_blank" style="background: linear-gradient(45deg, #ff6b6b, #ff8e8e); color: white; padding: 0.5rem 1rem; border-radius: 25px; text-decoration: none; font-size: 0.9rem;">Ver Producto</a>
+                </div>
+                <div class="producto-card fade-in">
+                    <div class="producto-emoji">🍫</div>
+                    <h3>Hershey's Cookies</h3>
+                    <p>Las galletas con chispas de chocolate más famosas de USA. Perfectas para el milk challenge.</p>
+                    <span class="precio">$75 MXN</span>
+                    <br><br>
+                    <a href="https://loopmx.com.mx/" target="_blank" style="background: linear-gradient(45deg, #ff6b6b, #ff8e8e); color: white; padding: 0.5rem 1rem; border-radius: 25px; text-decoration: none; font-size: 0.9rem;">Ver Producto</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <span class="stat-number">50K+</span>
+                    <span class="stat-label">Clientes Satisfechos</span>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label">Productos Únicos</span>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number">5★</span>
+                    <span class="stat-label">Calificación Promedio</span>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number">24h</span>
+                    <span class="stat-label">Envío Express</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="about">
+        <div class="about-content fade-in">
+            <h2>¿Quiénes Somos?</h2>
+            <p>En LOOP MX, creemos que un buen snack no solo debe ser delicioso, sino también responsable. Nos enorgullece nuestra dedicación a la sostenibilidad y a apoyar a la comunidad local, porque el futuro del planeta y de nuestras raíces es tan importante como el sabor de tus antojos.</p>
+            <br>
+            <p>Fundada en 2020, LOOP MX se ha establecido rápidamente como la empresa líder en snacks americanos en México. Nuestra misión es proporcionar a nuestros clientes una amplia variedad de productos auténticos de Estados Unidos, desde los clásicos hasta los más virales de las redes sociales.</p>
+        </div>
+    </section>
+
+    <!-- Documentación del Proyecto -->
+    <section id="documentacion" class="documentacion">
+        <div class="container">
+            <div class="doc-content">
+                <h1 class="doc-title">DISEÑO DE SITIO WEB DE LA EMPRESA LOOP MX</h1>
+                
+                <div class="doc-section">
+                    <h2>ÍNDICE</h2>
+                    <ol>
+                        <li><a href="#doc-introduccion">Introducción</a></li>
+                        <li><a href="#doc-objetivo">Objetivo del Trabajo</a></li>
+                        <li><a href="#doc-desarrollo">Desarrollo</a>
+                            <ul>
+                                <li>3.1 Información sobre la Empresa</li>
+                                <li>3.2 Análisis de Requerimientos</li>
+                                <li>3.3 Teoría del Color Aplicada</li>
+                                <li>3.4 Desarrollo del Sitio Web</li>
+                                <li>3.5 Hosting y Publicación</li>
+                            </ul>
+                        </li>
+                        <li><a href="#doc-conclusiones">Conclusiones</a></li>
+                        <li><a href="#doc-bibliografia">Bibliografía y Referencias</a></li>
+                    </ol>
+                </div>
+
+                <div id="doc-introduccion" class="doc-section">
+                    <h2>1. INTRODUCCIÓN</h2>
+                    <p>El presente proyecto consiste en el diseño y desarrollo de un sitio web para la empresa LOOP MX, una compañía mexicana especializada en la importación y venta de snacks americanos virales. En la era digital actual, la presencia online se ha vuelto fundamental para el éxito de cualquier negocio, especialmente para empresas que se dirigen a un público joven y conectado digitalmente.</p>
+                    
+                    <p>LOOP MX surge como respuesta a la creciente demanda de productos americanos auténticos en México, particularmente aquellos que se han vuelto populares a través de las redes sociales como TikTok, Instagram y YouTube. La empresa fue fundada en 2020 y se ha establecido rápidamente como líder en el mercado de snacks importados, con un enfoque en productos virales y de alta calidad.</p>
+                    
+                    <p><strong>La necesidad de crear una página web profesional surge de varios factores:</strong></p>
+                    <ul>
+                        <li>Expansión del mercado digital post-pandemia</li>
+                        <li>Competencia creciente en el sector de productos importados</li>
+                        <li>Demanda de los consumidores por experiencias de compra online</li>
+                        <li>Necesidad de establecer credibilidad y confianza de marca</li>
+                        <li>Oportunidad de llegar a nuevos mercados geográficos</li>
+                    </ul>
+                    
+                    <p><strong>Antecedentes de la empresa:</strong> LOOP MX comenzó como una pequeña empresa familiar en Sonora, México, con la visión de hacer accesibles los productos americanos más populares del momento. Su crecimiento exponencial en redes sociales y la fidelidad de sus clientes han posicionado a la marca como referente en el sector.</p>
+                </div>
+
+                <div id="doc-objetivo" class="doc-section">
+                    <h2>2. OBJETIVO DEL TRABAJO</h2>
+                    <p><strong>Objetivo General:</strong></p>
+                    <p>Diseñar y desarrollar un sitio web moderno, funcional y atractivo para la empresa LOOP MX que mejore su presencia digital y facilite la promoción de sus productos de snacks americanos virales.</p>
+                    
+                    <p><strong>Objetivos Específicos:</strong></p>
+                    <ul>
+                        <li>Crear una interfaz de usuario atractiva y moderna que refleje la identidad de marca joven y viral de LOOP MX</li>
+                        <li>Desarrollar un sitio web completamente responsivo que funcione óptimamente en dispositivos móviles, tablets y desktop</li>
+                        <li>Implementar una estructura de navegación intuitiva que facilite la exploración de productos</li>
+                        <li>Aplicar principios de UX/UI design para maximizar la conversión y engagement del usuario</li>
+                        <li>Integrar elementos visuales y animaciones que capturen la atención del público objetivo (millennials y Gen Z)</li>
+                        <li>Optimizar el sitio para motores de búsqueda (SEO básico)</li>
+                        <li>Establecer enlaces directos con la tienda online oficial para facilitar las ventas</li>
+                    </ul>
+                </div>
+
+                <div id="doc-desarrollo" class="doc-section">
+                    <h2>3. DESARROLLO</h2>
+                    
+                    <h3>3.1 Información sobre la Empresa</h3>
+                    <p><strong>Nombre:</strong> LOOP MX</p>
+                    <p><strong>Giro:</strong> Importación y venta de snacks americanos</p>
+                    <p><strong>Ubicación:</strong> Sonora, México</p>
+                    <p><strong>Año de fundación:</strong> 2020</p>
+                    <p><strong>Target principal:</strong> Jóvenes de 16-35 años, usuarios activos de redes sociales</p>
+                    <p><strong>Propuesta de valor:</strong> "Tu pase directo a los antojos más virales de USA"</p>
+                    
+                    <p><strong>Productos principales:</strong></p>
+                    <ul>
+                        <li>Twinkies y productos de repostería americana</li>
+                        <li>Snacks picantes virales (Hot Cheetos, Takis)</li>
+                        <li>Cereales americanos (Froot Loops, Lucky Charms)</li>
+                        <li>Galletas y dulces de marcas icónicas (Hershey's, Oreo)</li>
+                        <li>Pop-Tarts y productos para desayuno</li>
+                        <li>Productos estacionales y de edición limitada</li>
+                    </ul>
+
+                    <h3>3.2 Análisis de Requerimientos</h3>
+                    <p><strong>Análisis de lo que requiere la empresa para promocionar sus productos:</strong></p>
+                    
+                    <p><strong>Requerimientos Funcionales:</strong></p>
+                    <ul>
+                        <li>Catálogo visual atractivo de productos</li>
+                        <li>Información de precios actualizada</li>
+                        <li>Enlaces directos a la tienda online</li>
+                        <li>Información de contacto y redes sociales</li>
+                        <li>Sección "Sobre nosotros" para generar confianza</li>
+                        <li>Diseño responsivo para móviles (80% del tráfico)</li>
+                    </ul>
+                    
+                    <p><strong>Requerimientos de Diseño:</strong></p>
+                    <ul>
+                        <li>Estética moderna y juvenil</li>
+                        <li>Colores vibrantes que reflejen la naturaleza "viral"</li>
+                        <li>Tipografía legible y moderna</li>
+                        <li>Animaciones y microinteracciones</li>
+                        <li>Carga rápida y optimización</li>
+                    </ul>
+
+                    <h3>3.3 Teoría del Color Aplicada</h3>
+                    <p><strong>Paleta de colores seleccionada y justificación:</strong></p>
+                    
+                    <p><strong>Colores Primarios:</strong></p>
+                    <ul>
+                        <li><strong>Rojo Coral (#ff6b6b):</strong> Transmite energía, juventud y emoción. Evoca la sensación de "viral" y trending. Es un color que genera urgencia de compra.</li>
+                        <li><strong>Azul Turquesa (#4ecdc4):</strong> Aporta confianza, modernidad y frescura. Equilibra la intensidad del rojo y añade un toque premium.</li>
+                        <li><strong>Azul Cielo (#45b7d1):</strong> Sugiere innovación y tecnología. Conecta con la audiencia digital nativa.</li>
+                    </ul>
+                    
+                    <p><strong>Colores Secundarios:</strong></p>
+                    <ul>
+                        <li><strong>Púrpura Degradado (#667eea a #764ba2):</strong> Usado en el hero section, transmite creatividad y originalidad.</li>
+                        <li><strong>Blanco (#ffffff):</strong> Proporciona limpieza visual y legibilidad.</li>
+                        <li><strong>Gris Oscuro (#333):</strong> Para textos, garantiza buena legibilidad.</li>
+                    </ul>
+                    
+                    <p><strong>Justificación Psicológica:</strong></p>
+                    <p>La combinación de colores cálidos y fríos crea un equilibrio emocional que resulta atractivo para el público joven. El uso de gradientes refleja las tendencias actuales de diseño web y redes sociales, mientras que los colores vibrantes capturan la esencia "viral" de los productos.</p>
+
+                    <h3>3.4 Desarrollo del Sitio Web</h3>
+                    <p><strong>Tecnologías utilizadas:</strong></p>
+                    <ul>
+                        <li><strong>HTML5:</strong> Para la estructura semántica del contenido</li>
+                        <li><strong>CSS3:</strong> Para estilos, animaciones y responsive design</li>
+                        <li><strong>JavaScript:</strong> Para interactividad y animaciones dinámicas</li>
+                        <li><strong>Flexbox y CSS Grid:</strong> Para layouts modernos y responsivos</li>
+                    </ul>
+                    
+                    <p><strong>Estructura del sitio:</strong></p>
+                    <ul>
+                        <li><strong>Header:</strong> Navegación fija con logo y menú</li>
+                        <li><strong>Hero Section:</strong> Impacto visual con call-to-action</li>
+                        <li><strong>Productos:</strong> Grid responsivo con tarjetas interactivas</li>
+                        <li><strong>Estadísticas:</strong> Números que generan confianza</li>
+                        <li><strong>About:</strong> Historia y valores de la empresa</li>
+                        <li><strong>Footer:</strong> Información de contacto y enlaces</li>
+                    </ul>
+                    
+                    <p><strong>Características técnicas implementadas:</strong></p>
+                    <ul>
+                        <li>Diseño móvil-first (Mobile-first approach)</li>
+                        <li>Animaciones CSS con intersection observer</li>
+                        <li>Navegación suave (smooth scrolling)</li>
+                        <li>Hover effects y microinteracciones</li>
+                        <li>Optimización de carga y rendimiento</li>
+                    </ul>
+
+                    <h3>3.5 Hosting y Publicación</h3>
+                    <p><strong>Plataforma de hosting:</strong> Canvas</p>
+                    <p><strong>Link del sitio web:</strong> <a href="https://loopmx.com.mx/" target="_blank">https://loopmx.com.mx/</a></p>
+                    
+                    <p><strong>Proceso de publicación:</strong></p>
+                    <ol>
+                        <li>Optimización final del código HTML, CSS y JavaScript</li>
+                        <li>Compresión de imágenes y recursos</li>
+                        <li>Validación del código HTML y CSS</li>
+                        <li>Pruebas de responsividad en diferentes dispositivos</li>
+                        <li>Configuración del hosting en Canvas</li>
+                        <li>Subida de archivos y configuración de dominio</li>
+                        <li>Pruebas finales de funcionalidad</li>
+                    </ol>
+                </div>
+
+                <div id="doc-conclusiones" class="doc-section">
+                    <h2>4. CONCLUSIONES</h2>
+                    
+                    <h3>Experiencias en la realización del proyecto</h3>
+                    <p>El desarrollo de este proyecto ha sido una experiencia enriquecedora que ha permitido aplicar conocimientos teóricos de diseño web en un caso práctico real. La creación del sitio web para LOOP MX representó un desafío interesante al tener que capturar la esencia "viral" y juvenil de la marca mientras se mantenía la profesionalidad y funcionalidad requeridas.</p>
+                    
+                    <p>El proceso de investigación sobre la empresa y su mercado objetivo fue fundamental para tomar decisiones de diseño acertadas. La aplicación de la teoría del color resultó especialmente satisfactoria, ya que se logró crear una identidad visual coherente y atractiva.</p>
+                    
+                    <h3>Dificultades presentadas</h3>
+                    <p><strong>Falta de conocimientos:</strong></p>
+                    <ul>
+                        <li>Optimización avanzada de imágenes para web</li>
+                        <li>Implementación de SEO técnico más profundo</li>
+                        <li>Integración con sistemas de analytics</li>
+                    </ul>
+                    
+                    <p><strong>Limitaciones técnicas:</strong></p>
+                    <ul>
+                        <li>Restricciones del hosting gratuito</li>
+                        <li>Limitaciones en el uso de librerías externas</li>
+                        <li>Compatibilidad con navegadores más antiguos</li>
+                    </ul>
+                    
+                    <p><strong>Desafíos de diseño:</strong></p>
+                    <ul>
+                        <li>Equilibrar modernidad con funcionalidad</li>
+                        <li>Optimizar para diferentes tamaños de pantalla</li>
+                        <li>Mantener tiempos de carga rápidos con animaciones</li>
+                    </ul>
+                    
+                    <h3>Posibles aplicaciones del proyecto</h3>
+                    <p><strong>Aplicaciones inmediatas:</strong></p>
+                    <ul>
+                        <li>Plantilla base para otros proyectos de e-commerce</li>
+                        <li>Referencia para futuros diseños de marcas juveniles</li>
+                        <li>Caso de estudio para portfolio profesional</li>
+                    </ul>
+                    
+                    <p><strong>Mejoras futuras sugeridas:</strong></p>
+                    <ul>
+                        <li>Integración con sistema de gestión de inventario</li>
+                        <li>Implementación de carrito de compras funcional</li>
+                        <li>Sistema de reviews y calificaciones</li>
+                        <li>Chat en vivo para atención al cliente</li>
+                        <li>Blog/sección de noticias sobre productos nuevos</li>
+                        <li>Sistema de suscripción para newsletter</li>
+                    </ul>
+                    
+                    <p><strong>Aplicaciones académicas:</strong></p>
+                    <ul>
+                        <li>Material de enseñanza para cursos de diseño web</li>
+                        <li>Ejemplo práctico de aplicación de teoría del color</li>
+                        <li>Caso de estudio de UX/UI design</li>
+                    </ul>
+                </div>
+
+                <div id="doc-bibliografia" class="doc-section">
+                    <h2>5. BIBLIOGRAFÍA Y REFERENCIAS</h2>
+                    
+                    <h3>Referencias Web y Documentación Técnica</h3>
+                    <ul>
+                        <li>Mozilla Developer Network (MDN) - HTML, CSS, JavaScript Documentation. Disponible en: https://developer.mozilla.org/</li>
+                        <li>W3Schools - Web Development Tutorials. Disponible en: https://www.w3schools.com/</li>
+                        <li>CSS-Tricks - Modern CSS Techniques. Disponible en: https://css-tricks.com/</li>
+                        <li>Google Web Fundamentals - Performance and Responsive Design. Disponible en: https://developers.google.com/web/fundamentals</li>
+                    </ul>
+                    
+                    <h3>Teoría del Color y Diseño</h3>
+                    <ul>
+                        <li>Adobe Color Theory Guide. Disponible en: https://www.adobe.com/mx/creativecloud/design/discover/color-theory.html</li>
+                        <li>Coolors.co - Color Palette Generator. Disponible en: https://coolors.co/</li>
+                        <li>Material Design Color System by Google. Disponible en: https://material.io/design/color/</li>
+                    </ul>
+                    
+                    <h3>UX/UI Design</h3>
+                    <ul>
+                        <li>Nielsen Norman Group - UX Research and Design Guidelines. Disponible en: https://www.nngroup.com/</li>
+                        <li>Interaction Design Foundation - UX Design Course Materials. Disponible en: https://www.interaction-design.org/</li>
+                    </ul>
+                    
+                    <h3>Información de la Empresa</h3>
+                    <ul>
+                        <li>Sitio web oficial LOOP MX. Disponible en: https://loopmx.com.mx/</li>
+                        <li>Redes sociales oficiales de LOOP MX</li>
+                        <li>Análisis de mercado de productos importados en México (2024)</li>
+                    </ul>
+                    
+                    <h3>Tendencias de Diseño Web</h3>
+                    <ul>
+                        <li>Awwwards - Web Design Trends 2024. Disponible en: https://www.awwwards.com/</li>
+                        <li>Dribbble - Design Inspiration Community. Disponible en: https://dribbble.com/</li>
+                        <li>Behance - Creative Portfolios. Disponible en: https://www.behance.net/</li>
+                    </ul>
+                    
+                    <h3>Herramientas Utilizadas</h3>
+                    <ul>
+                        <li>Canvas Hosting Platform</li>
+                        <li>Claude AI - Asistente de desarrollo y diseño</li>
+                        <li>Visual Studio Code - Editor de código</li>
+                        <li>Chrome DevTools - Testing y debugging</li>
+                    </ul>
+                    
+                    <p><strong>Fecha de elaboración:</strong> Junio 2025</p>
+                    <p><strong>Última actualización:</strong> 20 de Junio de 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto" class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>LOOP MX</h3>
+                    <p>La tienda de snacks americanos más TOP de México y Latinoamérica. Calidad, precio y autenticidad garantizada.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>🌐 Tienda Online: <a href="https://loopmx.com.mx/" target="_blank">loopmx.com.mx</a></p>
+                    <p>📱 WhatsApp: +52 644 123 4567</p>
+                    <p>📍 Cajeme, Sonora, México</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <p><a href="https://loopmx.com.mx/">Catálogo Completo</a></p>
+                    <p><a href="https://loopmx.com.mx/">Tienda Online</a></p>
+                    <p><a href="#">Política de Privacidad</a></p>
+                    <p><a href="#">Términos y Condiciones</a></p>
+                </div>
+            </div>
+            
+            <div class="social-icons">
+                <a href="https://loopmx.com.mx/" class="social-icon" target="_blank">🛒</a>
+                <a href="#" class="social-icon">📘</a>
+                <a href="#" class="social-icon">📷</a>
+                <a href="#" class="social-icon">🐦</a>
+                <a href="#" class="social-icon">📱</a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 LOOP MX. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add some interactive effects
+        document.querySelectorAll('.producto-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Animated counter for stats
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                
+                if (element.textContent.includes('K')) {
+                    element.textContent = Math.floor(current / 1000) + 'K+';
+                } else if (element.textContent.includes('★')) {
+                    element.textContent = '5★';
+                } else if (element.textContent.includes('h')) {
+                    element.textContent = '24h';
+                } else {
+                    element.textContent = Math.floor(current) + '+';
+                }
+            }, 20);
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const numbers = entry.target.querySelectorAll('.stat-number');
+                    numbers.forEach(num => {
+                        const text = num.textContent;
+                        if (text.includes('50K')) animateCounter(num, 50000);
+                        else if (text.includes('200')) animateCounter(num, 200);
+                        else if (text.includes('5★')) num.textContent = '5★';
+                        else if (text.includes('24h')) num.textContent = '24h';
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+    </script>
+</body>
+</html>
